@@ -1,0 +1,174 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.scene {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(#111425, #3751e0);
+    background-attachment: fixed;
+    overflow: hidden;
+}
+
+.moon {
+    position: absolute;
+    top: 100px;
+    left: 400px;
+    width: 100px;
+    height: 100px;
+    background: #fff;
+    border-radius: 50%;
+    z-index: 1000;
+}
+
+.moon::after {
+    content: '';
+    position: absolute;
+    top: -15px;
+    left: 15px;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: linear-gradient(#111425, #3751e0);
+    background-attachment: fixed;
+}
+
+.forest {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    transform: scale(1.2);
+}
+
+.scene i {
+    position: absolute;
+    background: #fff;
+    border-radius: 50%;
+    animation: animate 5s linear infinite;
+}
+/* Cloud Animations */
+.cloud1,
+.cloud2,
+.cloud3,
+.cloud4,
+.cloud5,
+.cloud6 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10000;
+    opacity: 0.8;
+    animation: animateCloud linear infinite;
+}
+
+.cloud1 {
+    max-width: 600px;
+    animation-duration: 50s;
+}
+
+.cloud2 {
+    max-width: 500px;
+    animation-duration: 35s;
+}
+
+.cloud3 {
+    max-width: 600px;
+    animation-duration: 80s;
+}
+
+.cloud4 {
+    max-width: 300px;
+    animation-duration: 70s;
+    animation-delay: -20s;
+}
+
+.cloud5 {
+    max-width: 500px;
+    animation-duration: 40s;
+    animation-delay: -5s;
+}
+
+.cloud6 {
+    max-width: 400px;
+    animation-duration: 30s;
+    animation-delay: -10s;
+}
+
+@keyframes animateCloud {
+    0% {
+        transform: translateX(-100%) scale(1);
+    }
+    100% {
+        transform: translateX(400%) scale(1.5);
+    }
+}
+
+
+@keyframes animate {
+    0% {
+        opacity: 0;
+        transform: translateY(0);
+    }
+    10%, 90% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-100px);
+    }
+}
+
+/* Hujan */
+.rain {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+}
+
+.drop {
+    position: absolute;
+    width: 2px;
+    height: 10px;
+    background: rgba(255, 255, 255, 0.7);
+    bottom: 100%;
+    animation: drop 0.5s linear infinite;
+}
+
+@keyframes drop {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(100vh);
+    }
+}
+
+/* Kilat */
+.lightning {
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    width: 4px;
+    height: 100px;
+    background: yellow;
+    opacity: 0;
+    transform: translateX(-50%) rotate(45deg);
+    animation: flash 2s infinite;
+}
+
+@keyframes flash {
+    0%, 100% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+}
